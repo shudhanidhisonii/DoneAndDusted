@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;700;900&family=Urbanist:wght@300;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Urbanist', sans-serif;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin-top: 10rem;
+  padding: 0 1.5rem; /* add horizontal padding for small screens */
+}
+
+main h2 {
+  font-size: 3rem;
+  font-family: 'Lexend Deca', sans-serif;
+  margin-bottom: 4.8rem;
+}
+
+main h2 .icons {
+  color: #68B984;
+}
+
+/* Navbar Styling */
+nav {
+  width: 55rem;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid #ccc;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+nav a {
+  font-size: 2rem;
+  font-family: 'Lexend Deca', sans-serif;
+  color: #ccc;
+  border-bottom: 0.3rem solid transparent;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  border-color: #3A3845;
+}
+
+nav a.active {
+  color: #000;
+  border-color: #68B984;
+}
+
+/* Form Styling */
+form input {
+  border: 0.1rem solid #ccc;
+  border-radius: 0.3rem;
+  width: 45rem;
+  max-width: 100%;
+  margin: 4rem 0;
+  outline: none;
+  padding: 0.6rem 1rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.06rem;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 0.8rem 2.8rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 2.4rem;
+  background-color: #68B984;
+  color: #fff;
+  white-space: nowrap;
+}
+
+label {
+  font-size: 1.5rem;
+  letter-spacing: 0.06rem;
+  color: #3A3845;
+  font-weight: bold;
+}
+
+/* Todo task list */
+.main-task li {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  width: 50rem;
+  max-width: 100%;
+  min-height: 6rem;
+  border-bottom: 0.1rem solid #ccc;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.main-task li:first-child {
+  border-top: 0.1rem solid #ccc;
+}
+
+.main-task li:hover {
+  background-color: #fef2f2;
+}
+
+.main-task li input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #D14D72;
+}
+
+.main-task li button {
+  padding: 0.6rem 1rem;
+  width: 7rem;
+  background-color: #D14D72;
+  color: #FFF9F9;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  justify-self: center;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  main {
+    margin-top: 6rem;
+  }
+
+  nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 1.6rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  form input {
+    width: 100%;
+    margin: 2rem 0 1rem 0;
+  }
+
+  form button {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .main-task li {
+    grid-template-columns: 1fr 50px 80px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  main h2 {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+  }
+
+  nav a {
+    font-size: 1.4rem;
+  }
+
+  .main-task li {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .main-task li label {
+    grid-column: 1;
+    padding-left: 1.5rem;
+    word-break: break-word;
+  }
+
+  .main-task li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .main-task li input[type="checkbox"] + label::before {
+    content: '';
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 0.15rem solid #ccc;
+    border-radius: 0.3rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  .main-task li input[type="checkbox"]:checked + label::before {
+    background-color: #68B984;
+    border-color: #68B984;
+  }
+
+  .main-task li button {
+    width: 100%;
+    justify-self: stretch;
+    margin-top: 0.5rem;
+  }
+}
